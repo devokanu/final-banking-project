@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.okan.bankingmanagement.mybatis.AccountMapper">
+
+	<resultMap type="com.okan.bankingmanagement.domain.Account"
+		id="accountDetailResultMap" autoMapping="true">
+		<id property="id" column="id" />
+		<result property="account_number" column="account_number" />
+		<result property="balance" column="balance" />
+		<result property="creation_date" column="creation_date" />
+		<result property="last_update_date" column="last_update_date" />
+		<result property="is_deleted" column="is_deleted" />
+		<association property="user" autoMapping="true">
+			<id property="id" column="user_id" />
+			<id property="username" column="username" />
+		</association>
+		<association property="bank" autoMapping="true">
+			<id property="id" column="bank_id" />
+			<id property="name" column="name" />
+		</association>
+	</resultMap>
+
+	<resultMap type="Account" id="accountsByUser"
+		autoMapping="true">
+		<id property="id" column="account_id" />
+		<association property="user" autoMapping="true">
+			<id property="id" column="user_id" />
+		</association>
+		<association property="bank" autoMapping="true">
+			<id property="id" column="bank_id" />
+		</association>
+	</resultMap>
+
+
+
+	<select id="findById" resultMap="accountDetailResultMap">
+		SELECT *, Accounts.id as
+		account_id, Users.id as user_id, Banks.id as bank_id FROM Accounts
+		INNER JOIN
+		Users ON Users.id = Accounts.user_id
+		INNER JOIN
+		Banks ON
+		Banks.id = Accounts.bank_id
+		WHERE
+		Accounts.id = #{id}
+	</select>
+
+	<select id="findByAccountNumber"
+		resultMap="accountDetailResultMap">
+		SELECT *, Accounts.id as account_id, Users.id as user_id,
+		Banks.id as bank_id FROM Accounts
+		INNER JOIN
+		Users ON Users.id =
+		Accounts.user_id
+		INNER JOIN
+		Banks ON Banks.id = Accounts.bank_id
+		WHERE
+		Accounts.account_number = #{accountNumber}
+	</select>
+
+	<update id="update"  parameterType="Account">
+		UPDATE Accounts
+		<set>
+			<if test="balance != null">balance=#{balance},</if>
+			<if test="is_deleted != false">is_deleted=#{is_deleted},</if>
+			<if test="last_update_date != null">last_update_date=#{last_update_date},</if>
+		</set>
+		<where>
+			<if test=" account_number != 0 ">
+				account_number= #{account_number}
+			</if>
+			<if test="id != 0">
+				AND id like #{id}
+			</if>
+		</where>
+	</update>
+
+	<select id="getAccountsByUserId" resultMap="accountsByUser">
+		SELECT *, Accounts.id
+		as account_id, users.id as user_id, banks.id as
+		bank_id FROM accounts
+		INNER
+		JOIN users ON users.id = users.user_id
+		INNER JOIN banks ON
+		banks.id = banks.bank_id WHERE user.id = #{id}
+	</select>
+
+	<insert id="save" parameterType="Account">
+		INSERT INTO Accounts(id,
+		user_id,bank_id, account_number, type, balance, creation_date,
+		last_update_date, is_deleted)
+		VALUES(#{id}, #{user.id}, #{bank.id},
+		#{account_number}, #{type}, #{balance},
+		#{creation_date},
+		#{last_update_date}, #{is_deleted})
+	</insert>
+
+	<delete id="deleteById">
+		DELETE FROM Accounts WHERE id = #{id}
+	</delete>
+	
+	 <select id="getAccounts" resultMap="accountDetailResultMap">
+    SELECT * FROM Accounts WHERE user_id = #{user_id};
+    </select>
+
+
+
+
+
+
+
+</mapper>

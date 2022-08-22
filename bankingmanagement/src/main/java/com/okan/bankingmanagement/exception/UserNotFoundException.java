@@ -1,0 +1,9 @@
+package com.okan.bankingmanagement.exception;
+
+public class UserNotFoundException extends Exception {
+
+	public UserNotFoundException(String message) {
+		super(message);
+	}
+
+}

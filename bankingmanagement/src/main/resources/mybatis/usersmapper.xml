@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.okan.bankingmanagement.mybatis.UserMapper">
+
+	<resultMap type="com.okan.bankingmanagement.domain.User"
+		id="UserResult" autoMapping="true">
+		<id property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="email" column="email" />
+		<result property="password" column="password" />
+		<result property="enabled" column="enabled" />
+		<result property="authorities" column="authorities" />
+
+	</resultMap>
+
+
+	<select id="findById" resultMap="UserResult">
+		SELECT * from Users WHERE id =
+		#{id}
+	</select>
+	
+	<select id="findByName" resultMap="UserResult">
+		SELECT * from Users WHERE username =
+		#{username}
+	</select>
+	
+	
+
+	<select id="getUsertemp" resultType="User">
+		SELECT * from Users
+		<where>
+			<if test="id != 0">id=#{id},</if>
+			<if test="username != null">username=#{username},</if>
+			<if test="email != null">email=#{email}</if>
+		</where>
+	</select>
+
+	<select id="getUser" resultType="User">
+		SELECT * from Users
+		<where>
+			<if test=" id != 0 ">
+				id= #{id}
+			</if>
+			<if test="username != null">
+				AND username like #{username}
+			</if>
+			<if test="email != null">
+				AND email like #{email}
+			</if>
+
+		</where>
+
+	</select>
+	
+	<update id="update"  parameterType="User">
+		UPDATE Users SET enabled = #{enabled} WHERE id = #{id}
+		
+	</update>
+
+
+
+	<insert id="save" parameterType="User">
+		INSERT INTO Users
+		(id,username,
+		firstname, lastname,email, password, enabled, authorities, roles)
+		VALUES(#{id}, #{username}, #{firstname},
+		#{lastname}, #{email},
+		#{password},
+		#{enabled},
+		#{authorities}, #{roles})
+	</insert>
+
+
+
+
+</mapper>

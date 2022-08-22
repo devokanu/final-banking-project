@@ -1,0 +1,1348 @@
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber debug - ==>  Preparing: SELECT *, Accounts.id as account_id, Users.id as user_id, Banks.id as bank_id FROM Accounts INNER JOIN Users ON Users.id = Accounts.user_id INNER JOIN Banks ON Banks.id = Accounts.bank_id WHERE Accounts.account_number = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber debug - ==> Parameters: 254864654(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted, id, username, email, password, enabled, authorities, roles, firstname, lastname, id, name, account_id, user_id, bank_id
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber trace - <==        Row: 1, 2, 1, 254864654, TRY, 4000.0, 2022-08-20 22:45:10, 2022-08-22 06:35:53, 0, 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null, 1, Akbank, 1, 2, 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.update debug - ==>  Preparing: UPDATE Accounts SET balance=?, last_update_date=? WHERE account_number= ?
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.update debug - ==> Parameters: 4500.0(Double), 2022-08-22 06:36:12.052(Timestamp), 254864654(Integer)
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.update debug - <==    Updates: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber debug - ==>  Preparing: SELECT *, Accounts.id as account_id, Users.id as user_id, Banks.id as bank_id FROM Accounts INNER JOIN Users ON Users.id = Accounts.user_id INNER JOIN Banks ON Banks.id = Accounts.bank_id WHERE Accounts.account_number = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber debug - ==> Parameters: 254864654(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted, id, username, email, password, enabled, authorities, roles, firstname, lastname, id, name, account_id, user_id, bank_id
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0, 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null, 1, Akbank, 1, 2, 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.findByAccountNumber debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 1, 2, 1, 254864654, TRY, 4500.0, 2022-08-20 22:45:10, 2022-08-22 06:36:12, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 6
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, USD, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 2
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==>  Preparing: SELECT * from Users WHERE username like ?
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - ==> Parameters: okanyorukoglu(String)
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+[TRACE] com.okan.bankingmanagement.mybatis.UserMapper.getUser trace - <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+[DEBUG] com.okan.bankingmanagement.mybatis.UserMapper.getUser debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 2, 2, 1, 2147483647, XAU, 1750.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 7, 2, 3, 1268548044, TRY, 200.0, 2022-08-22 03:10:34, 2022-08-22 03:10:34, 0
+[TRACE] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts trace - <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+[DEBUG] com.okan.bankingmanagement.mybatis.AccountMapper.getAccounts debug - <==      Total: 3
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 1(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 1, Akbank
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 3(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 3, TEB
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - ==> Parameters: 2(Integer)
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==    Columns: id, name
+[TRACE] com.okan.bankingmanagement.mybatis.BankMapper.findById trace - <==        Row: 2, Ziraat
+[DEBUG] com.okan.bankingmanagement.mybatis.BankMapper.findById debug - <==      Total: 1

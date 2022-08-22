@@ -1,0 +1,45 @@
+2022-08-22 06:32:58,344 DEBUG c.o.b.m.U.getUser [http-nio-5432-exec-2] ==>  Preparing: SELECT * from Users WHERE username like ?
+2022-08-22 06:32:58,371 DEBUG c.o.b.m.U.getUser [http-nio-5432-exec-2] ==> Parameters: okanyorukoglu(String)
+2022-08-22 06:32:58,405 TRACE c.o.b.m.U.getUser [http-nio-5432-exec-2] <==    Columns: id, username, email, password, enabled, authorities, roles, firstname, lastname
+2022-08-22 06:32:58,406 TRACE c.o.b.m.U.getUser [http-nio-5432-exec-2] <==        Row: 2, okanyorukoglu, gitmi33n@hotmail.com, $2a$10$Pa1zwFhTqmJQKksTEReQpugxecZhysEPbfrtVV9K4O6LFHSk8j7N6, 1, user:read,user:ACTIVATE_DEACTIVATE_USER, ROLE_USER, null, null
+2022-08-22 06:32:58,408 DEBUG c.o.b.m.U.getUser [http-nio-5432-exec-2] <==      Total: 1
+2022-08-22 06:32:58,417 DEBUG c.o.b.m.A.getAccounts [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Accounts WHERE user_id = ?;
+2022-08-22 06:32:58,418 DEBUG c.o.b.m.A.getAccounts [http-nio-5432-exec-2] ==> Parameters: 2(Integer)
+2022-08-22 06:32:58,426 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==    Columns: id, user_id, bank_id, account_number, type, balance, creation_date, last_update_date, is_deleted
+2022-08-22 06:32:58,427 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==        Row: 1, 2, 1, 254864654, TRY, 3500.0, 2022-08-20 22:45:10, 2022-08-22 06:09:56, 0
+2022-08-22 06:32:58,429 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==        Row: 2, 2, 1, 2147483647, USD, 0.0, 2022-08-21 20:06:58, 2022-08-21 21:38:47, 1
+2022-08-22 06:32:58,430 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==        Row: 5, 2, 2, 2147483647, USD, 0.0, 2022-08-22 02:58:22, 2022-08-22 02:58:22, 0
+2022-08-22 06:32:58,431 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==        Row: 6, 2, 1, 2147483647, TRY, 0.0, 2022-08-22 02:58:58, 2022-08-22 02:58:58, 0
+2022-08-22 06:32:58,432 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==        Row: 7, 2, 2, 249569326, USD, 0.0, 2022-08-22 03:06:38, 2022-08-22 03:06:38, 0
+2022-08-22 06:32:58,433 TRACE c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==        Row: 8, 2, 2, 1268812044, USD, 500.0, 2022-08-22 03:10:34, 2022-08-22 04:06:51, 0
+2022-08-22 06:32:58,434 DEBUG c.o.b.m.A.getAccounts [http-nio-5432-exec-2] <==      Total: 6
+2022-08-22 06:32:58,439 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+2022-08-22 06:32:58,440 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==> Parameters: 1(Integer)
+2022-08-22 06:32:58,446 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==    Columns: id, name
+2022-08-22 06:32:58,446 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==        Row: 1, Akbank
+2022-08-22 06:32:58,446 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] <==      Total: 1
+2022-08-22 06:32:58,447 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+2022-08-22 06:32:58,447 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==> Parameters: 1(Integer)
+2022-08-22 06:32:58,450 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==    Columns: id, name
+2022-08-22 06:32:58,450 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==        Row: 1, Akbank
+2022-08-22 06:32:58,450 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] <==      Total: 1
+2022-08-22 06:32:58,451 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+2022-08-22 06:32:58,451 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==> Parameters: 2(Integer)
+2022-08-22 06:32:58,454 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==    Columns: id, name
+2022-08-22 06:32:58,455 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==        Row: 2, Ziraat
+2022-08-22 06:32:58,455 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] <==      Total: 1
+2022-08-22 06:32:58,456 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+2022-08-22 06:32:58,456 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==> Parameters: 1(Integer)
+2022-08-22 06:32:58,459 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==    Columns: id, name
+2022-08-22 06:32:58,460 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==        Row: 1, Akbank
+2022-08-22 06:32:58,460 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] <==      Total: 1
+2022-08-22 06:32:58,461 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+2022-08-22 06:32:58,462 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==> Parameters: 2(Integer)
+2022-08-22 06:32:58,465 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==    Columns: id, name
+2022-08-22 06:32:58,465 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==        Row: 2, Ziraat
+2022-08-22 06:32:58,466 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] <==      Total: 1
+2022-08-22 06:32:58,466 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==>  Preparing: SELECT * FROM Banks WHERE id = ?
+2022-08-22 06:32:58,467 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] ==> Parameters: 2(Integer)
+2022-08-22 06:32:58,471 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==    Columns: id, name
+2022-08-22 06:32:58,471 TRACE c.o.b.m.B.findById [http-nio-5432-exec-2] <==        Row: 2, Ziraat
+2022-08-22 06:32:58,471 DEBUG c.o.b.m.B.findById [http-nio-5432-exec-2] <==      Total: 1
