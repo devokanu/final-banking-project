@@ -3,10 +3,7 @@ package com.okan.bankingmanagement.repository.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.okan.bankingmanagement.domain.Account;
 import com.okan.bankingmanagement.exception.InvalidAccountTypeException;
 import com.okan.bankingmanagement.mybatis.AccountMapper;

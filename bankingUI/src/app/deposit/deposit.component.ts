@@ -39,15 +39,15 @@ export class DepositComponent implements OnInit {
     )
   }
 
-
+  
   toDeposit(){
     if(this.depositForm.valid){
-      this.api.deposit(this.depositForm.value)
+      this.api.deposit(this.depositForm.value,this.depositForm.value.account_number)
       .subscribe({next:(res) =>{
         alert("Deposit added succesfully")
       },
     error:()=>{
-      alert("Error while adding the account")
+      alert("Error while adding the deposit")
     } })
     }
   }

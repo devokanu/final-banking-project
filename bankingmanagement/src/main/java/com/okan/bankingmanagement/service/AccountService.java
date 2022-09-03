@@ -2,14 +2,10 @@ package com.okan.bankingmanagement.service;
 
 import java.util.Date;
 import java.util.List;
-
-import javax.security.auth.login.AccountNotFoundException;
+import java.util.Random;
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -17,14 +13,12 @@ import com.okan.bankingmanagement.domain.Account;
 import com.okan.bankingmanagement.domain.AccountType;
 import com.okan.bankingmanagement.domain.Bank;
 import com.okan.bankingmanagement.domain.User;
-import com.okan.bankingmanagement.domain.UserPrincipal;
 import com.okan.bankingmanagement.dto.response.AccountDetailResponse;
-import com.okan.bankingmanagement.dto.response.BankResponse;
+import com.okan.bankingmanagement.exception.AccountAuthorizationException;
+import com.okan.bankingmanagement.exception.AccountNotFoundException;
 import com.okan.bankingmanagement.exception.DeletedAccountException;
 import com.okan.bankingmanagement.exception.InvalidAccountTypeException;
 import com.okan.bankingmanagement.exception.UnexpectedErrorException;
-import com.okan.bankingmanagement.mybatis.AccountMapper;
-import com.okan.bankingmanagement.mybatis.UserMapper;
 import com.okan.bankingmanagement.repository.AccountRepository;
 import com.okan.bankingmanagement.repository.BankRepository;
 import com.okan.bankingmanagement.repository.UserRepository;
@@ -39,6 +33,7 @@ public class AccountService {
 	private final UserRepository userRepo;
 	private final ModelMapper mapper;
 	private final UtilMapper utilMapper;
+	
 
 	@Autowired
     public AccountService(AccountRepository accountRepo, ModelMapper mapper, BankRepository bankRepo,
@@ -64,12 +59,11 @@ public class AccountService {
 		User user = userRepo.findUserByUsername(currentUser);
 		Bank bank = bankRepo.getBank(bankId);
 	
+		int accnum = getRandomNumberUsingNextInt();
 		
-		Long number = (long) (Math.floor(Math.random() * 9_000_000_000L) + 1_000_000_000L);
-		String num = number.toString();
+		
 		Account acc = new Account();
-		
-		acc.setAccount_number(Integer.valueOf(num));
+		acc.setAccount_number(accnum);
 		acc.setBalance(0);
 		acc.setCreation_date(new Date(System.currentTimeMillis()));
 		acc.setLast_update_date(acc.getCreation_date());
@@ -91,22 +85,35 @@ public class AccountService {
         return account;
     }
     
-    public AccountDetailResponse getAccountByAccountNumber(int id)  {
-        
-
-    	AccountDetailResponse account = mapper.map(accountRepo.getAccountByAccountNumber(id), AccountDetailResponse.class);
+    public AccountDetailResponse getAccountByAccountNumber(int id) throws AccountAuthorizationException  {
+    	String currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+    	User user = userRepo.findUserByUsername(currentUser);
+    	if(user.getId() != accountRepo.getAccountByAccountNumber(id).getUser().getId()) {
+    		throw new AccountAuthorizationException();
+    	}
+    	AccountDetailResponse account = mapper.map(accountRepo.getAccountByAccountNumber(id), 
+    			AccountDetailResponse.class);
 
         return account;
     }
     
-    public boolean deleteAccount(int id) throws DeletedAccountException, AccountNotFoundException, UnexpectedErrorException {
+    public void deleteAccount(int id) throws DeletedAccountException, AccountNotFoundException, UnexpectedErrorException {
         
     	Account account = accountRepo.getAccountByAccountNumber(id);
+    	if(account == null) {
+    		throw new AccountNotFoundException("Account not found: " + id);
+    	}
+    	
+    	if(account.isIs_deleted()) {
+    		throw new DeletedAccountException("This account has been deleted before: " + id);
+    	}
     	account.setIs_deleted(true);
     	account.setLast_update_date(new Date(System.currentTimeMillis()));
-    	boolean isSuccess = accountRepo.deleteAccount(account);
-
-        return isSuccess;
+    	try {
+    		accountRepo.deleteAccount(account);
+		} catch (Exception e) {
+			throw new UnexpectedErrorException("Unexpected Error");
+		}
     }
 
     
@@ -124,6 +131,11 @@ public class AccountService {
 		User user = userRepo.findUserByUsername(currentUser);
 		List<AccountDetailResponse> accounts =utilMapper.detailAccount(accountRepo.getAccounts(user.getId()));
 		return accounts;
+	}
+	
+	public int getRandomNumberUsingNextInt() {
+	    Random random = new Random();
+	    return random.nextInt(Integer.MAX_VALUE - 1000000000) + 1000000000;
 	}
 	
 	

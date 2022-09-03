@@ -1,21 +1,14 @@
 package com.okan.bankingmanagement.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import com.okan.bankingmanagement.domain.Account;
-import com.okan.bankingmanagement.domain.AccountType;
 import com.okan.bankingmanagement.domain.Bank;
-import com.okan.bankingmanagement.domain.User;
-import com.okan.bankingmanagement.dto.response.AccountDetailResponse;
 import com.okan.bankingmanagement.dto.response.BankResponse;
 import com.okan.bankingmanagement.exception.BankExistException;
-import com.okan.bankingmanagement.exception.InvalidAccountTypeException;
 import com.okan.bankingmanagement.exception.UnexpectedErrorException;
 import com.okan.bankingmanagement.repository.BankRepository;
 
@@ -56,7 +49,7 @@ public class BankService {
 		bankTemp.setName(name);
 		bankRepo.createBank(bankTemp);
 		
-		BankResponse detail = mapper.map(bankTemp, BankResponse.class);
+		BankResponse detail = mapper.map(bankRepo.getBank(name), BankResponse.class);
 		return detail;
 	}
 	

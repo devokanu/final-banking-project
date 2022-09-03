@@ -33,6 +33,7 @@ public class UtilMapper {
 			temp.setLast_update_date(ac.getLast_update_date());
 			temp.setType(ac.getType());
 			temp.setBank(bankRepo.getBank(ac.getBank().getId()));
+			temp.setUser(ac.getUser());
 			if(!ac.isIs_deleted()) {
 				list.add(temp);
 			}

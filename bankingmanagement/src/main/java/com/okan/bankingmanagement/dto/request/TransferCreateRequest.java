@@ -2,21 +2,14 @@ package com.okan.bankingmanagement.dto.request;
 
 public class TransferCreateRequest {
 	
-	private int senderId;
-	private int receiverId;
+	private int receiverAccountId;
 	private double amount;
 	
-	public int getSenderId() {
-		return senderId;
+	public int getReceiverAccountId() {
+		return receiverAccountId;
 	}
-	public void setSenderId(int senderId) {
-		this.senderId = senderId;
-	}
-	public int getReceiverId() {
-		return receiverId;
-	}
-	public void setReceiverId(int receiverId) {
-		this.receiverId = receiverId;
+	public void setReceiverId(int receiverAccountId) {
+		this.receiverAccountId = receiverAccountId;
 	}
 	public double getAmount() {
 		return amount;

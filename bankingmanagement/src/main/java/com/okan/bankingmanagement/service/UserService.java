@@ -71,7 +71,7 @@ public class UserService implements UserDetailsService {
 		
 	}
 	
-	public UserRegisterResponse register(String username, String email, String password)
+	public void register(String username, String email, String password)
 			throws UserNotFoundException, UsernameExistException, EmailExistException, MessagingException {
 		validateNewUsernameAndEmail(EMPTY, username, email);
 		
@@ -82,12 +82,10 @@ public class UserService implements UserDetailsService {
 		user.setEnabled(true);
 		user.setRoles(ROLE_USER.name());
 		user.setAuthorities(ROLE_USER.getAuthorities());
-		userRepo.save(user);
-		UserRegisterResponse response = mapper.map(user, UserRegisterResponse.class) ;
-		//LOGGER.info("New user password: " + password);
-		//emailService.sendNewPasswordEmail(firstName, password, email);
+		userRepo.save(user) ;
 		
-		return response;
+		
+		
 	}
 
 	private String generateUserId() {
@@ -112,18 +110,18 @@ public class UserService implements UserDetailsService {
 				throw new UserNotFoundException(NO_USER_FOUND_BY_USERNAME + currentUsername);
 			}
 			if (userByNewUsername != null && !(currentUser.getId() == userByNewUsername.getId())) {
-				throw new UsernameExistException(USERNAME_ALREADY_EXISTS);
+				throw new UsernameExistException(USERNAME_ALREADY_EXISTS + newUsername);
 			}
 			if (userByNewEmail != null && !(currentUser.getId() == userByNewEmail.getId())) {
-				throw new EmailExistException(EMAIL_ALREADY_EXISTS);
+				throw new EmailExistException(EMAIL_ALREADY_EXISTS + newEmail);
 			}
 			return currentUser;
 		} else {
 			if (userByNewUsername != null) {
-				throw new UsernameExistException(USERNAME_ALREADY_EXISTS);
+				throw new UsernameExistException(USERNAME_ALREADY_EXISTS + newUsername);
 			}
 			if (userByNewEmail != null) {
-				throw new EmailExistException(EMAIL_ALREADY_EXISTS);
+				throw new EmailExistException(EMAIL_ALREADY_EXISTS + newEmail);
 			}
 			return null;
 		}

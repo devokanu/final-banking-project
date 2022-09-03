@@ -18,6 +18,7 @@ import com.okan.bankingmanagement.dto.request.AccountCreateRequest;
 import com.okan.bankingmanagement.dto.request.BankCreateRequest;
 import com.okan.bankingmanagement.dto.response.AccountDetailResponse;
 import com.okan.bankingmanagement.dto.response.BankResponse;
+import com.okan.bankingmanagement.dto.response.CreateBankResponse;
 import com.okan.bankingmanagement.dto.response.ErrorResponse;
 import com.okan.bankingmanagement.exception.BankExistException;
 import com.okan.bankingmanagement.exception.InvalidAccountTypeException;
@@ -45,12 +46,13 @@ public class BankController {
 	}
 	
 	@PostMapping(path = "/{create}", produces = { MediaType.APPLICATION_JSON_VALUE})
-	@PreAuthorize("hasAnyAuthority('user:CREATE_BANK')")
+	@PreAuthorize("hasAnyAuthority('CREATE_BANK')")
 	public ResponseEntity<?> createBank(@RequestBody BankCreateRequest request) throws BankExistException
 	{
 		String message = "";
+		BankResponse response = null;
 		try {
-			BankResponse response = service.createBank(request.getName()) ;
+			response = service.createBank(request.getName()) ;
 			message = "Created Successfully";
 		} catch (UnexpectedErrorException e) {
             return ResponseEntity
@@ -59,7 +61,7 @@ public class BankController {
         }
 	     return ResponseEntity
 	                    .status(HttpStatus.CREATED)
-	                    .body(message);
+	                    .body(new CreateBankResponse(true, message, response));
 	     
 	     
 	    

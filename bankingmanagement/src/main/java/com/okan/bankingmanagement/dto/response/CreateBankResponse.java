@@ -1,34 +1,41 @@
 package com.okan.bankingmanagement.dto.response;
 
-import java.util.List;
-
-import com.okan.bankingmanagement.domain.Account;
-
-public class UserRegisterResponse {
+public class CreateBankResponse {
 	
 	private boolean success;
 	private String message;
-	private UserResponse userResponse;
+	private BankResponse bank;
 	
+	public CreateBankResponse(boolean success, String message, BankResponse bank) {
+		super();
+		this.success = success;
+		this.message = message;
+		this.bank = bank;
+	}
+
 	public boolean isSuccess() {
 		return success;
 	}
+
 	public void setSuccess(boolean success) {
 		this.success = success;
 	}
+
 	public String getMessage() {
 		return message;
 	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public UserResponse getUserResponse() {
-		return userResponse;
+
+	public BankResponse getBank() {
+		return bank;
 	}
-	public void setUserResponse(UserResponse userResponse) {
-		this.userResponse = userResponse;
+
+	public void setBank(BankResponse bank) {
+		this.bank = bank;
 	}
-	
 	
 	
 	

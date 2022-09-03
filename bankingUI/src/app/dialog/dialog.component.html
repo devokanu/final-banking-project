@@ -1,19 +1,30 @@
 <h1 mat-dialog-title>Add Account Form</h1>
 <div mat-dialog-content>
     <form [formGroup]="accountForm">
-    <mat-form-field appearance="outline">
+
+        <mat-form-field  appearance="outline">
+            <mat-label>Account</mat-label>
+            <mat-select formControlName="bank_id" (change)="ChangeAccount($event)" placeholder="Bank">
+                <mat-option>-Select Bank--</mat-option>
+                <mat-option *ngFor="let bank of BankList" [value]="bank.id">{{bank.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        
+  <!-- 
+   <mat-form-field appearance="outline">
         <mat-label>Bank</mat-label>
         <mat-select formControlName="bank" placeholder="Bank">
             <mat-option value="1">Akbank</mat-option>
             <mat-option value="2">TEB</mat-option>
         </mat-select>
       </mat-form-field>
+    -->
       <mat-form-field appearance="outline">
         <mat-label>Type</mat-label>
         <mat-select formControlName="type" placeholder="Type">
             <mat-option value="TRY">Turkish Lira</mat-option>
             <mat-option value="USD">Dollar</mat-option>
-            <mat-option value="GAU">Gold</mat-option>
+            <mat-option value="XAU">Gold</mat-option>
         </mat-select>
       </mat-form-field>
     </form>

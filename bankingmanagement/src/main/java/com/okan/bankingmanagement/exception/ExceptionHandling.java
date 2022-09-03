@@ -1,9 +1,7 @@
 package com.okan.bankingmanagement.exception;
 
 import java.io.IOException;
-
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,26 +16,72 @@ import static org.springframework.http.HttpStatus.*;
 @RestControllerAdvice
 public class ExceptionHandling implements ErrorController {
 	
-	//private final Logger LOGGER = LoggerFactory.getLogger(getClass());
-    private static final String ACCOUNT_LOCKED = "Your account has been locked. Please contact administration";
-    private static final String METHOD_IS_NOT_ALLOWED = "This request method is not allowed on this endpoint. Please send a '%s' request";
-    private static final String INTERNAL_SERVER_ERROR_MSG = "An error occurred while processing the request";
-    private static final String INCORRECT_CREDENTIALS = "Username / password incorrect. Please try again";
+	
     private static final String ACCOUNT_DISABLED = "Your account has been disabled. If this is an error, please contact administration";
     private static final String ERROR_PROCESSING_FILE = "Error occurred while processing file";
-    private static final String NOT_ENOUGH_PERMISSION = "You do not have enough permission";
-    private static final String INVALID_ACCOUNT_TYPE = "Invalid Account Type: ";
+    private static final String UNAUTHORIZED_ACCESS = "Access Denied";
     public static final String ERROR_PATH = "/error";
 
+    @ExceptionHandler(UsernameExistException.class)
+    public ResponseEntity<HttpResponse> usernameExist(UsernameExistException exception){
+    	return createHttpResponse(UNPROCESSABLE_ENTITY, exception.getMessage());
+    
+    }
+    
+    @ExceptionHandler(EmailExistException.class)
+    public ResponseEntity<HttpResponse> emailExist(EmailExistException exception){
+    	return createHttpResponse(UNPROCESSABLE_ENTITY, exception.getMessage());
+    
+    }
+    
     @ExceptionHandler(DisabledException.class)
     public ResponseEntity<HttpResponse> accountDisabledException() {
-        return createHttpResponse(BAD_REQUEST, ACCOUNT_DISABLED);
+        return createHttpResponse(FORBIDDEN, ACCOUNT_DISABLED);
     }
+    
+    @ExceptionHandler(InvalidAccountTypeException.class)
+    public ResponseEntity<HttpResponse> invalidAccountTypeException(InvalidAccountTypeException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+    
+    @ExceptionHandler(AccountAuthorizationException.class)
+    public ResponseEntity<HttpResponse> accountAuthorizationException(AccountAuthorizationException exception) {
+        return createHttpResponse(UNAUTHORIZED, UNAUTHORIZED_ACCESS);
+    }
+    
+    @ExceptionHandler(AccountNotFoundException.class)
+    public ResponseEntity<HttpResponse> accountNotFoundException(AccountNotFoundException exception) {
+        return createHttpResponse(NOT_FOUND, exception.getMessage());
+    }
+    
+    @ExceptionHandler(DeletedAccountException.class)
+    public ResponseEntity<HttpResponse> deletedAccountException(DeletedAccountException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+    
+    @ExceptionHandler(InvalidInputException.class)
+    public ResponseEntity<HttpResponse> invalidInputException(InvalidInputException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+    
+    @ExceptionHandler(InsufficientFundsException.class)
+    public ResponseEntity<HttpResponse> insufficientFundsException(InsufficientFundsException exception) {
+        return createHttpResponse(BAD_REQUEST, exception.getMessage());
+    }
+    
+    @ExceptionHandler(BankExistException.class)
+    public ResponseEntity<HttpResponse> bankExistException(BankExistException exception) {
+        return createHttpResponse(UNPROCESSABLE_ENTITY, exception.getMessage());
+    }
+    
+    
+    
+    
+    
 
 
     @ExceptionHandler(IOException.class)
     public ResponseEntity<HttpResponse> iOException(IOException exception) {
-        //LOGGER.error(exception.getMessage());
         return createHttpResponse(INTERNAL_SERVER_ERROR, ERROR_PROCESSING_FILE);
     }
 
@@ -46,15 +90,14 @@ public class ExceptionHandling implements ErrorController {
                 httpStatus.getReasonPhrase().toUpperCase(), message), httpStatus);
     }
     
-    @ExceptionHandler(InvalidAccountTypeException.class)
-    public ResponseEntity<HttpResponse> invalidAccountTypeException(InvalidAccountTypeException exception) {
-        return createHttpResponse(BAD_REQUEST, INVALID_ACCOUNT_TYPE);
-    }
+    
 
     @RequestMapping(ERROR_PATH)
     public ResponseEntity<HttpResponse> notFound404() {
         return createHttpResponse(NOT_FOUND, "There is no mapping for this URL");
     }
+    
+    
 
    
 

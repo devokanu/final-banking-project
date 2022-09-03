@@ -22,6 +22,8 @@ import com.okan.bankingmanagement.domain.UserPrincipal;
 import com.okan.bankingmanagement.dto.request.UserLoginRequest;
 import com.okan.bankingmanagement.dto.request.UserRegisterRequest;
 import com.okan.bankingmanagement.dto.response.ErrorResponse;
+import com.okan.bankingmanagement.dto.response.LoginResponse;
+import com.okan.bankingmanagement.dto.response.UserActiveStatusResponse;
 import com.okan.bankingmanagement.dto.response.UserRegisterResponse;
 import com.okan.bankingmanagement.dto.response.UserResponse;
 import com.okan.bankingmanagement.exception.EmailExistException;
@@ -38,7 +40,7 @@ import static com.okan.bankingmanagement.constant.SecurityConstant.*;
 import static org.springframework.http.HttpStatus.*;
 
 @RestController
-@RequestMapping(path= {"/","v1/user"})
+@RequestMapping(path= {"/","/users"})
 @CrossOrigin("http://localhost:4200")
 public class UserController {
 	
@@ -57,7 +59,11 @@ public class UserController {
 
 	@PostMapping("/register")
 	public ResponseEntity<UserRegisterResponse> register(@RequestBody UserRegisterRequest request) throws MessagingException, UserNotFoundException, UsernameExistException, EmailExistException{
-		UserRegisterResponse response = service.register(request.getUsername(),request.getEmail(), request.getPassword()) ;
+		service.register(request.getUsername(),request.getEmail(), request.getPassword()) ;
+		UserRegisterResponse response = new UserRegisterResponse();
+		response.setSuccess(true);
+		response.setMessage("Created Successfully");
+		response.setUserResponse(new UserResponse(request.getUsername(),request.getEmail(),true));
 	    
 		return ResponseEntity
 	                    .status(HttpStatus.CREATED)
@@ -65,13 +71,14 @@ public class UserController {
 		
 	}
 	
-	@PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody UserLoginRequest user) {
+	@PostMapping("/auth")
+    public ResponseEntity<?> login(@RequestBody UserLoginRequest user) {
         authenticate(user.getUsername(), user.getPassword());
         User loginUser = service.findUserByUsername(user.getUsername());
         UserPrincipal userPrincipal = new UserPrincipal(loginUser);
         HttpHeaders jwtHeader = getJwtHeader(userPrincipal);
-        return new ResponseEntity<>(loginUser, jwtHeader, OK);
+        
+        return new ResponseEntity<>(new LoginResponse(true,"Logged-In Successfully",jwtHeader.get("Jwt-Token").toString()), jwtHeader, OK);
     }
 	
 	private HttpHeaders getJwtHeader(UserPrincipal user) {
@@ -86,12 +93,13 @@ public class UserController {
     }
 	
 	@PatchMapping("/{id}")
-	@PreAuthorize("hasAnyAuthority('user:ACTIVATE_DEACTIVATE_USER')")
+	@PreAuthorize("hasAnyAuthority('ACTIVATE_DEACTIVATE_USER')")
 	public ResponseEntity<?> activityUserStatus(@PathVariable int id){
 		String message = "";
+		
 		try {
 			UserResponse response = service.updateUser(id);
-			message = response.getUsername() + "  is " + response.isEnabled();
+			message = response.getUsername() + " is " + response.isEnabled();
 			
 		} catch (UnexpectedErrorException e) {
             return ResponseEntity
@@ -101,7 +109,7 @@ public class UserController {
 		
 		return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(message);
+                .body(new UserActiveStatusResponse(true, message));
 		
 	}
 	

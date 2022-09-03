@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Account } from '../model/account';
+import { Bank } from '../model/bank';
 import { CustomHttpRespone } from '../model/custom-http-response';
 
 @Injectable({
@@ -25,32 +26,23 @@ export class AccountService {
     return this.http.post<Account>(`${this.host}/v1/accounts/create`, formData);
   }
 
-  public addBank(formData: FormData): Observable<Account> {
-    return this.http.post<Account>(`${this.host}/v1/bank/create`, formData);
+  public addBank(formData: FormData): Observable<CustomHttpRespone> {
+    return this.http.post<CustomHttpRespone>(`${this.host}/v1/bank/create`, formData);
   }
 
-  public deposit(formData: FormData): Observable<Account> {
-    return this.http.patch<Account>(`${this.host}/v1/transaction/deposit`, formData);
+  public deposit(formData: FormData,accountNumber: number): Observable<Account> {
+    return this.http.patch<Account>(`${this.host}/v1/transaction/deposit/${accountNumber}`, formData);
   }
 
-  public transfer(formData: FormData): Observable<Account> {
-    return this.http.patch<Account>(`${this.host}/v1/transaction/transfer`, formData);
+  public transfer(formData: FormData,accountNumber: number): Observable<Account> {
+    return this.http.patch<Account>(`${this.host}/v1/transaction/transfer/${accountNumber}`, formData);
   }
 
   public deleteAccount(accountNumber: number): Observable<CustomHttpRespone> {
     return this.http.delete<CustomHttpRespone>(`${this.host}/v1/accounts/${accountNumber}`);
   }
-/*
-  public createAccountFormDate(account: Account): FormData {
-    const formData = new FormData();
-    
-    formData.append('bankId', account.bank_id);
-    formData.append('type', account.type);
-    return formData;
-  }
-*/
   public getBankList():Observable<any[]>{
-    return this.http.get<any>(`${this.host}/bank`);
+    return this.http.get<any>(`${this.host}/v1/bank`);
   }
 
   public addUsersToLocalCache(accounts: Account[]): void {

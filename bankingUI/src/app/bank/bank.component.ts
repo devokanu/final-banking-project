@@ -31,7 +31,7 @@ export class BankComponent implements OnInit {
         alert("Bank added succesfully")
       },
     error:()=>{
-      alert("Error while adding the account")
+      alert("Error while adding the bank")
     } })
     }
   }

@@ -29,8 +29,8 @@ public class AccountDetailResponse {
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
-	public User getUser() {
-		return user;
+	public int getUser() {
+		return user.getId();
 	}
 	public void setUser(User user) {
 		this.user = user;

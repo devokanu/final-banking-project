@@ -9,11 +9,7 @@ public enum Role {
     
 
     private String authorities;
-/*
-    Role(String... authorities) {
-        this.authorities = authorities;
-    }
-*/
+
     public String getAuthorities() {
         return authorities;
     }

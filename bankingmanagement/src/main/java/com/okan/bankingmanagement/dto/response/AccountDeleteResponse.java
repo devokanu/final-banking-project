@@ -1,15 +1,22 @@
 package com.okan.bankingmanagement.dto.response;
 
-import java.util.List;
-
-import com.okan.bankingmanagement.domain.Account;
-
-public class UserRegisterResponse {
+public class AccountDeleteResponse {
 	
 	private boolean success;
 	private String message;
-	private UserResponse userResponse;
 	
+	public AccountDeleteResponse(boolean success, String message) {
+		super();
+		this.success = success;
+		this.message = message;
+	}
+	
+	
+	public AccountDeleteResponse() {
+		
+	}
+
+
 	public boolean isSuccess() {
 		return success;
 	}
@@ -22,15 +29,6 @@ public class UserRegisterResponse {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public UserResponse getUserResponse() {
-		return userResponse;
-	}
-	public void setUserResponse(UserResponse userResponse) {
-		this.userResponse = userResponse;
-	}
-	
-	
-	
 	
 	
 

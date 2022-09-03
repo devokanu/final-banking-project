@@ -47,26 +47,15 @@ export class TransferComponent implements OnInit {
   toTransfer(){
 
     if(this.transferForm.valid){
-      this.api.transfer(this.transferForm.value)
+      this.api.transfer(this.transferForm.value,this.transferForm.value.senderId)
       .subscribe({next:(res) =>{
-        alert("Account added succesfully")
+        alert("Transfer succesfully")
       },
     error:()=>{
-      alert("Error while adding the account")
+      alert("Error while transfer")
     } })
     }
   }
 
-/*
-  getAllAccounts(){
-    this.api.getAccounts()
-    .subscribe({
-      next:(res:any) => {
-        this.AccountList = new MatTableDataSource(res);
-        console.log(this.AccountList)
-      }
-    })
-  }
-*/
 
 }

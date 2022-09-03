@@ -1,5 +1,6 @@
 package com.okan.bankingmanagement;
 
+
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,6 +27,7 @@ public class BankingmanagementApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BankingmanagementApplication.class, args);
+	
 	}
 	
 	@Bean
@@ -54,19 +56,7 @@ public class BankingmanagementApplication {
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	/*
-	@Bean
-	   public CommandLineRunner demo() {
-			System.out.println(ROLE_USER.name());
-			System.out.println(ROLE_USER.getAuthorities());
-			for (String em : ROLE_USER.getAuthorities()) {
-				System.out.println(em);
-			}
-			
-			return null;
-	   }
-
-	*/
+	
 	
 	
 	

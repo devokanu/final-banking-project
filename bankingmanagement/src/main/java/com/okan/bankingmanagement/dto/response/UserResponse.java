@@ -2,16 +2,20 @@ package com.okan.bankingmanagement.dto.response;
 
 public class UserResponse {
 	
-	private int id;
 	private String username;
 	private String email;
 	private boolean enabled;
-	public int getId() {
-		return id;
+	
+	public UserResponse(String username, String email, boolean enabled) {
+		this.username = username;
+		this.email = email;
+		this.enabled = enabled;
 	}
-	public void setId(int id) {
-		this.id = id;
+	
+	
+	public UserResponse() {
 	}
+
 	public String getUsername() {
 		return username;
 	}

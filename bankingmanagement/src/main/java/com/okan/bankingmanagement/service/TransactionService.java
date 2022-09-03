@@ -2,22 +2,26 @@ package com.okan.bankingmanagement.service;
 
 import java.util.Date;
 
-import javax.security.auth.login.AccountNotFoundException;
-
+import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.okan.bankingmanagement.domain.Account;
 import com.okan.bankingmanagement.domain.AccountType;
+import com.okan.bankingmanagement.domain.User;
 import com.okan.bankingmanagement.dto.response.AccountDetailResponse;
+import com.okan.bankingmanagement.exception.AccountAuthorizationException;
+import com.okan.bankingmanagement.exception.AccountNotFoundException;
 import com.okan.bankingmanagement.exception.DeletedAccountException;
 import com.okan.bankingmanagement.exception.InsufficientFundsException;
 import com.okan.bankingmanagement.exception.InvalidInputException;
 import com.okan.bankingmanagement.exception.UnexpectedErrorException;
 import com.okan.bankingmanagement.repository.AccountRepository;
+import com.okan.bankingmanagement.repository.UserRepository;
 import com.okan.bankingmanagement.utility.ExchangeAPIService;
 
 @Service
@@ -26,60 +30,94 @@ public class TransactionService {
 	private final KafkaTemplate<String, String> kafkaTemplate;
 	private final ExchangeAPIService exchange;
 	private final ModelMapper mapper;
+	private final UserRepository userRepo;
+	private static final Logger logger = Logger.getLogger(TransactionService.class);
 	
 	
 	@Autowired
 	public TransactionService(AccountRepository AccountRepo, KafkaTemplate<String, String> kafkaTemplate,
-			ExchangeAPIService exchange, ModelMapper mapper) {
+			ExchangeAPIService exchange, ModelMapper mapper, UserRepository userRepo) {
 		this.accountRepo = AccountRepo;
 		this.kafkaTemplate = kafkaTemplate;
 		this.exchange = exchange;
 		this.mapper = mapper;
+		this.userRepo = userRepo;
 	}
 	
 	private double USD_TRY;
     private double XAU_TRY;
 
 	public AccountDetailResponse deposit(int accountNumber, double amount)
-            throws AccountNotFoundException, DeletedAccountException, InvalidInputException, UnexpectedErrorException {
+            throws AccountNotFoundException, DeletedAccountException, AccountAuthorizationException, InvalidInputException {
 		
-		Account account = accountRepo.getAccountByAccountNumber(accountNumber);
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+    	User user = userRepo.findUserByUsername(currentUser);
+    	Account acc = accountRepo.getAccountByAccountNumber(accountNumber);
+    	
+    	if(acc == null) {
+    		throw new AccountNotFoundException("Account not found: " + accountNumber);
+    	}
+    	if(user.getId() != acc.getUser().getId()) {
+    		throw new AccountAuthorizationException();
+    	}
+    	if(acc.isIs_deleted()) {
+    		throw new DeletedAccountException("This account has been deleted before: " + accountNumber);
+    	}
+    	
 		Account accTemp = new Account();
 
         if(amount <= 0) {
             String errorMessage = String.format("Deposit amount is not valid: %s %s",
-                    amount, account.getType());
+                    amount, acc.getType());
 
             throw new InvalidInputException(errorMessage);
         }
         
         accTemp.setAccount_number(accountNumber);
-        accTemp.setBalance(account.getBalance() + amount);
+        accTemp.setBalance(acc.getBalance() + amount);
         accTemp.setLast_update_date(new Date(System.currentTimeMillis()));
 
         accountRepo.updateAccount(accTemp);
 
-        String log = account.getId() + " , " + amount + " : " + "deposited";
+        String log = acc.getId() + " , " + amount + " : " + "deposited";
         kafkaTemplate.send("logs", log);
-        //kafkaTemplate.send("logs", deposit.toString());
+        
 
         AccountDetailResponse accountResponse = mapper.map(accountRepo.getAccountByAccountNumber(accountNumber), AccountDetailResponse.class) ;
         
-        // Return updated account info
         return accountResponse;
     }
 	
 	@Transactional
     public AccountDetailResponse transfer(int senderId, double amount, int receiverId)
             throws AccountNotFoundException, DeletedAccountException, InvalidInputException,
-            InsufficientFundsException, UnexpectedErrorException {
+            InsufficientFundsException, UnexpectedErrorException, AccountAuthorizationException {
 		Account sender = accountRepo.getAccountByAccountNumber(senderId);
 		Account receiver = accountRepo.getAccountByAccountNumber(receiverId);
+		
+		String currentUser = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+    	User user = userRepo.findUserByUsername(currentUser);
+    	
+		
+		if(sender == null) {
+    		throw new AccountNotFoundException("Account not found: " + senderId);
+    	}
+		if(receiver == null) {
+    		throw new AccountNotFoundException("Account not found: " + receiverId);
+    	}
+    	if(user.getId() != sender.getUser().getId()) {
+    		throw new AccountAuthorizationException();
+    	}
+    	if(sender.isIs_deleted()) {
+    		throw new DeletedAccountException("This account has been deleted before: " + senderId);
+    	}
+    	if(receiver.isIs_deleted()) {
+    		throw new DeletedAccountException("This account has been deleted before: " + receiverId);
+    	}
 		
 		AccountType base = sender.getType();
 		AccountType to = receiver.getType();
 
-        // Check if amount is valid
         if(amount <= 0) {
             String errorMessage = String.format("Transfer amount is not valid: %s %s",
                     amount, base);
@@ -88,7 +126,7 @@ public class TransactionService {
         }
 
         if(sender.getBalance() < amount) {
-            String errorMessage = String.format("Sender account does not have enough funds: %s %s",
+            String errorMessage = String.format("Insufficient Balance, Sender account does not have enough funds: %s %s",
             		sender.getBalance(), base);
 
             throw new InsufficientFundsException(errorMessage);
@@ -111,22 +149,21 @@ public class TransactionService {
         Date updateDate = new Date(System.currentTimeMillis());
         
         tempSender.setAccount_number(senderId);
-        tempSender.setBalance(sender.getBalance() - amount);
+        tempSender.setBalance((sender.getBalance() - amount));
         tempSender.setLast_update_date(updateDate);
         
         tempReceiver.setAccount_number(receiverId);
-        tempReceiver.setBalance(receiver.getBalance() + (amount * exchangeRate));
+        tempReceiver.setBalance((receiver.getBalance() + (amount * exchangeRate)));
         tempReceiver.setLast_update_date(updateDate);
         
         if(!base.equals(to)) {
-        if(base.equals(AccountType.TRY)) tempSender.setBalance(sender.getBalance() - 3);
-        if(base.equals(AccountType.USD)) tempSender.setBalance(sender.getBalance() - 1);
+        if(base.equals(AccountType.TRY)) tempSender.setBalance(tempSender.getBalance() - 3);
+        if(base.equals(AccountType.USD)) tempSender.setBalance(tempSender.getBalance() - 1);
         }
       
         accountRepo.updateAccount(tempSender);
         accountRepo.updateAccount(tempReceiver);
 
-        //kafkaTemplate.send("logs", transfer.toString());
         String log = amount + " , " + senderId + " to " + receiverId + " : transferred";
         kafkaTemplate.send("logs", log);
 

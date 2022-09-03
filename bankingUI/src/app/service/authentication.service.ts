@@ -17,11 +17,11 @@ export class AuthenticationService {
   constructor(private http: HttpClient) {}
 
   public login(user: UserTemp): Observable<HttpResponse<UserTemp>> {
-    return this.http.post<UserTemp>(`${this.host}/v1/user/login`, user, { observe: 'response' });
+    return this.http.post<UserTemp>(`${this.host}/users/auth`, user, { observe: 'response' });
   }
 
   public register(user: UserTemp): Observable<UserTemp> {
-    return this.http.post<UserTemp>(`${this.host}/v1/user/register`, user);
+    return this.http.post<UserTemp>(`${this.host}/users/register`, user);
   }
 
   public logOut(): void {

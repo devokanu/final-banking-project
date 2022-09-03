@@ -4,7 +4,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { NotificationType } from '../enum/notification-type.enum';
-import { Role } from '../enum/role.enum';
 import { Account } from '../model/account';
 import { CustomHttpRespone } from '../model/custom-http-response';
 import { User } from '../model/user';
@@ -60,12 +59,6 @@ export class AccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllAccounts();
-    //this.getAccounts(true);
-
-    /*this.accountService.getBankList().subscribe((data:any)=>{
-      this.bankList=data;
-      this.getAccounts(true);
-    })*/
   }
 
   public navigateTo() { 
@@ -98,6 +91,7 @@ getAllAccounts(){
   this.accountService.getAccounts()
   .subscribe({
     next:(res) => {
+      console.log(res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -152,17 +146,6 @@ applyFilter(event: Event) {
     document.getElementById(buttonId).click();
   }
 
-  public get isAdmin(): boolean {
-    return this.getUserRole() === Role.ADMIN || this.getUserRole() === Role.SUPER_ADMIN;
-  }
-
-  private getUserRole(): string {
-    return this.authenticationService.getUserFromLocalCache().role;
-  }
-
-  
-
-
   private sendNotification(notificationType: NotificationType, message: string): void {
     if (message) {
       this.notificationService.notify(notificationType, message);
@@ -174,41 +157,7 @@ applyFilter(event: Event) {
   public saveNewAccount(): void {
     this.clickButton('new-account-save');
   }
-/*
-  public onAddNewAccount(accountForm: NgForm): void {
-    const formData = this.accountService.createAccountFormDate(accountForm.value);
-    this.subscriptions.push(
-      this.accountService.addAccount(formData).subscribe(
-        (response: Account) => {
-          this.clickButton('new-account-close');
-          this.bank_id = null;
-          this.type = null;
-          accountForm.reset();
-          this.sendNotification(NotificationType.SUCCESS, `${response.bank_id} ${response.type} added successfully`);
-        },
-        (errorResponse: HttpErrorResponse) => {
-          this.sendNotification(NotificationType.ERROR, errorResponse.error.message);
-        }
-      )
-      );
-  }
-*
 
-/*
-  public onDeleteUder(username: string): void {
-    this.subscriptions.push(
-      this.accountService.deleteUser(username).subscribe(
-        (response: CustomHttpRespone) => {
-          this.sendNotification(NotificationType.SUCCESS, response.message);
-          this.getAccounts(false);
-        },
-        (error: HttpErrorResponse) => {
-          this.sendNotification(NotificationType.ERROR, error.error.message);
-        }
-      )
-    );
-  }
-*/
   public getAccounts(showNotification: boolean): void {
     this.refreshing = true;
     this.subscriptions.push(
@@ -219,7 +168,7 @@ applyFilter(event: Event) {
           console.log(this.accounts);
           this.refreshing = false;
           if (showNotification) {
-            this.sendNotification(NotificationType.SUCCESS, `${response.length} user(s) loaded successfully.`);
+            this.sendNotification(NotificationType.SUCCESS, `${response.length} account(s) loaded successfully.`);
           }
         },
         (errorResponse: HttpErrorResponse) => {

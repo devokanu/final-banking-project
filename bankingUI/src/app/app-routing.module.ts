@@ -8,12 +8,12 @@ import { RegisterComponent } from './register/register.component';
 import { TransferComponent } from './transfer/transfer.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'auth', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthenticationGuard] },
   { path: 'transfer', component: TransferComponent,canActivate: [AuthenticationGuard] },
   { path: 'deposit', component: DepositComponent,canActivate: [AuthenticationGuard] },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: '/auth', pathMatch: 'full' }
 ];
 
 @NgModule({

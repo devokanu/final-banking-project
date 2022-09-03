@@ -6,7 +6,7 @@ import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.List;
 
-import javax.security.auth.login.AccountNotFoundException;
+
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,13 @@ import com.okan.bankingmanagement.domain.Bank;
 import com.okan.bankingmanagement.domain.User;
 import com.okan.bankingmanagement.domain.UserPrincipal;
 import com.okan.bankingmanagement.dto.request.AccountCreateRequest;
+import com.okan.bankingmanagement.dto.response.AccountCreateResponse;
+import com.okan.bankingmanagement.dto.response.AccountDeleteResponse;
 import com.okan.bankingmanagement.dto.response.AccountDetailResponse;
 import com.okan.bankingmanagement.dto.response.BankResponse;
 import com.okan.bankingmanagement.dto.response.ErrorResponse;
+import com.okan.bankingmanagement.exception.AccountAuthorizationException;
+import com.okan.bankingmanagement.exception.AccountNotFoundException;
 import com.okan.bankingmanagement.exception.DeletedAccountException;
 import com.okan.bankingmanagement.exception.InvalidAccountTypeException;
 import com.okan.bankingmanagement.exception.UnexpectedErrorException;
@@ -55,13 +59,13 @@ public class AccountController {
 	}
 
 	@PostMapping(path = "/{create}", produces = { MediaType.APPLICATION_JSON_VALUE})
-	@PreAuthorize("hasAnyAuthority('user:CREATE_ACCOUNT')")
+	@PreAuthorize("hasAnyAuthority('CREATE_ACCOUNT')")
 	public ResponseEntity<?> createAccount(@RequestBody AccountCreateRequest request) throws InvalidAccountTypeException
 	{
-		AccountDetailResponse response = service.createAccount(Integer.parseInt(request.getBank()) ,request.getType()) ;
+		AccountDetailResponse response = service.createAccount(Integer.parseInt(request.getBank_id()) ,request.getType()) ;
 	     return ResponseEntity
 	                    .status(HttpStatus.CREATED)
-	                    .body(response);
+	                    .body(new AccountCreateResponse(true,"Account Created",response));
 	    
 	}
 	
@@ -77,7 +81,7 @@ public class AccountController {
 	}
 	
 	@GetMapping(path = "/{accountNumber}", produces = { MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<Object> getDetailByAccountNumber(@PathVariable int accountNumber){
+	public ResponseEntity<Object> getDetailByAccountNumber(@PathVariable int accountNumber) throws AccountAuthorizationException{
 		
 		
 		AccountDetailResponse detail = service.getAccountByAccountNumber(accountNumber);
@@ -93,23 +97,15 @@ public class AccountController {
 	}
 	
 	@DeleteMapping("/{accountNumber}")
-	@PreAuthorize("hasAnyAuthority('user:REMOVE_ACCOUNT')")
-    public ResponseEntity<?> deleteAccount(@PathVariable int accountNumber) {
-        boolean result;
-        try {
-            result = service.deleteAccount(accountNumber);
-        } catch (AccountNotFoundException | DeletedAccountException e) {
-            return ResponseEntity
-                    .status(HttpStatus.NOT_FOUND)
-                    .body(new ErrorResponse(e.getMessage()));
-        } catch (UnexpectedErrorException e) {
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ErrorResponse(e.getMessage()));
-        }
+	@PreAuthorize("hasAnyAuthority('REMOVE_ACCOUNT')")
+    public ResponseEntity<?> deleteAccount(@PathVariable int accountNumber) throws AccountNotFoundException,
+    DeletedAccountException, UnexpectedErrorException {
+
+         service.deleteAccount(accountNumber);
+      
         return ResponseEntity
                 .status(HttpStatus.OK)
-                .body(result);
+                .body(new AccountDeleteResponse(true,"Account Deleted"));
 		}
 
 	
