@@ -8,6 +8,7 @@ Backend (REST)    | [SpringBoot](https://projects.spring.io/spring-boot) (Java)
 Security          | Token Based (Spring Security and [JWT](https://github.com/auth0/java-jwt) )
 External API      | [CollectAPI](https://collectapi.com/)
 Database          | MySQL 
+MQ                | Apache Kafka 
 Persistence       | [MyBatis](https://mybatis.org/mybatis-3/) 
 Client Build Tools| [angular-cli](https://github.com/angular/angular-cli), Webpack, npm
 Server Build Tools| Maven(Java)
@@ -99,6 +100,9 @@ create table patika.Users
 ### UI Sample
 
 ![Patika](https://user-images.githubusercontent.com/95742539/185840227-8630060c-3e27-4547-99ae-1de56c97cc27.gif)
+
+
+![Patika2](https://user-images.githubusercontent.com/95742539/185847153-2c0d139e-1414-42c5-8f55-067cd13d5f24.gif)
 
 
 
